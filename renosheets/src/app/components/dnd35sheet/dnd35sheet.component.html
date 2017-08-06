@@ -1,0 +1,349 @@
+<!-- General Info -->
+<table>
+  <tr>
+    <td><p>Character Name</p></td>
+    <td><p>Player Name</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Character Name"></td>
+    <td><input placeholder="Player Name"></td>
+  </tr>
+  <tr>
+    <td><p>Class</p></td>
+    <td><p>Level</p></td>
+    <td><p>Race</p></td>
+    <td><p>Alignment</p></td>
+    <td><p>Deity</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Class"></td>
+    <td><input placeholder="Level"></td>
+    <td><input placeholder="Race"></td>
+    <td><input placeholder="Alignment"></td>
+    <td><input placeholder="Deity"></td>
+  </tr>
+  <tr>
+    <td><p>Size</p></td>
+    <td><p>Age</p></td>
+    <td><p>Gender</p></td>
+    <td><p>Height</p></td>
+    <td><p>Weight</p></td>
+    <td><p>Eyes</p></td>
+    <td><p>Hair</p></td>
+    <td><p>Skin</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Size"></td>
+    <td><input placeholder="Age"></td>
+    <td><input placeholder="Gender"></td>
+    <td><input placeholder="Height"></td>
+    <td><input placeholder="Weight"></td>
+    <td><input placeholder="Eyes"></td>
+    <td><input placeholder="Hair"></td>
+    <td><input placeholder="Skin"></td>
+  </tr>
+</table>
+
+<!-- Ability Scores -->
+<table>
+  <tr>
+    <td><p>Ability</p></td>
+    <td><p>ABI</p></td>
+    <td><p>Score</p></td>
+    <td><p>Modifier</p></td>
+    <td><p>Temp Score</p></td>
+    <td><p>Temp Modifier</p></td>
+  </tr>
+  <tr>
+    <td><p>Strength</p></td>
+    <td><p>STR</p></td>
+    <td><input [(ngModel)]="str" (blur)="blurAbility('str', str)"></td>
+    <td>{{statStore.strMod}}</td>
+    <td><input [(ngModel)]="this.strMod" readonly></td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+  <tr>
+    <td><p>Dexterity</p></td>
+    <td><p>DEX</p></td>
+    <td><input #dex (blur)="blurAbility('dex', dex.value)"></td>
+    <td>{{statStore.dexMod}}</td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+  <tr>
+    <td><p>Constitution</p></td>
+    <td><p>CON</p></td>
+    <td><input #con (blur)="blurAbility('con', con.value)"></td>
+    <td><p>{{statStore.conMod}}</p></td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+  <tr>
+    <td><p>Intelligence</p></td>
+    <td><p>INT</p></td>
+    <td><input #int (blur)="blurAbility('int', int.value)"></td>
+    <td>{{statStore.intMod}}</td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+  <tr>
+    <td><p>Wisdom</p></td>
+    <td><p>WIS</p></td>
+    <td><input #wis (blur)="blurAbility('wis', wis.value)"></td>
+    <td>{{statStore.wisMod}}</td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+  <tr>
+    <td><p>Charisma</p></td>
+    <td><p>CHA</p></td>
+    <td><input #cha (blur)="blurAbility('cha', cha.value)"></td>
+    <td>{{statStore.chaMod}}</td>
+    <td><input></td>
+    <td><input readonly></td>
+  </tr>
+</table>
+
+<!-- HP -->
+<table>
+  <tr>
+    <td><p>HP</p></td>
+    <td><input placeholder="HP"></td>
+    <td><input placeholder="Current HP"></td>
+    <td><input placeholder="Nonlethal Damage"></td>
+  </tr>
+</table>
+
+<!-- AC -->
+<table>
+  <tr>
+    <td><p>AC</p></td>
+    <td><p>Base</p></td>
+    <td><p>Armor</p></td>
+    <td><p>Shield</p></td>
+    <td><p>Dex</p></td>
+    <td><p>Size</p></td>
+    <td><p>Natural</p></td>
+    <td><p>Deflection</p></td>
+    <td><p>Misc</p></td>
+  </tr>
+  <tr>
+    <td><p>{{armorClass}}</p></td>
+    <td><p>10</p></td>
+    <td><p>{{armorBonus}}</p></td>
+    <td><p>{{shieldBonus}}</p></td>
+    <td><p>{{statStore.dexMod}}</p></td>
+    <td><p>{{sizeAC}}</p></td>
+    <td><p>{{naturalAC}}</p></td>
+    <td><p>{{deflectionAC}}</p></td>
+    <input #miscarmor (blur)="blurAC(miscarmor.value)">
+  </tr>
+  <tr>
+    <td><p>Touch</p></td>
+    <td><p>{{touchAC}}</p></td>
+    <td><p>Flat-Footed</p></td>
+    <td><p>{{ffAC}}</p></td>
+  </tr>
+</table>
+
+<!-- Init and Speed -->
+<table>
+  <tr>
+    <td><p>Speed</p></td>
+    <td><input placeholder="Speed"></td>
+  </tr>
+  <tr>
+    <td><p>Initiative</p></td>
+    <td><input placeholder="Init" readonly></td>
+    <td><input placeholder="Misc"></td>
+  </tr>
+</table>
+
+<!-- DR/SR and Saves -->
+<table>
+  <tr>
+    <td><p>DR</p></td>
+    <td><input placeholder="Damage Reduction"></td>
+    <td><p>SR</p></td>
+    <td><input placeholder="Spell Resistance"></td>
+  </tr>
+  <tr>
+    <td><p>Save</p></td>
+    <td><p>Total</p></td>
+    <td><p>Base</p></td>
+    <td><p>Ability</p></td>
+    <td><p>Magic</p></td>
+    <td><p>Misc</p></td>
+    <td><p>Temp</p></td>
+  </tr>
+  <tr>
+    <td><p>Fortitude</p></td>
+    <td><input placeholder="Fort"></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input placeholder="Conditional Modifiers"></td>
+  </tr>
+  <tr>
+    <td><p>Reflex</p></td>
+    <td><input placeholder="Ref"></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td><p>Will</p></td>
+    <td><input placeholder="Will"></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+    <td><input></td>
+  </tr>
+</table>
+
+<!-- Offense Basics -->
+<table>
+  <tr>
+    <td><p>Base Attack Bonus</p></td>
+    <td><input placeholder="BAB"></td>
+    <td><p>Grapple</p></td>
+    <td><input placeholder="Total"></td>
+    <td><input placeholder="BAB"></td>
+    <td><input placeholder="STR"></td>
+    <td><input placeholder="Size"></td>
+    <td><input placeholder="Misc"></td>
+  </tr>
+</table>
+
+<!-- Attacks -->
+<table>
+  <tr>
+    <td><p>Attack</p></td>
+    <td><p>Attack Bonus</p></td>
+    <td><p>Damage</p></td>
+    <td><p>Critical</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Attack"></td>
+    <td><input placeholder="Attack Bonus"></td>
+    <td><input placeholder="Damage"></td>
+    <td><input placeholder="Critical"></td>
+  </tr>
+  <tr>
+    <td><p>Range</p></td>
+    <td><p>Type</p></td>
+    <td><p>Notes</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Range"></td>
+    <td><input placeholder="Type"></td>
+    <td><input placeholder="Notes"></td>
+  </tr>
+  <tr>
+    <td><p>Ammunition</p></td>
+    <td><input placeholder="Ammo"></td>
+    <td><input placeholder="Number"></td>
+  </tr>
+</table>
+
+<!-- Armor -->
+<table>
+  <tr>
+    <td><p>Item</p></td>
+    <td><p>Type</p></td>
+    <td><p>AC</p></td>
+    <td><p>Max Dex</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Item"></td>
+    <td><input placeholder="Type"></td>
+    <td><input placeholder="AC"></td>
+    <td><input placeholder="Max Dex"></td>
+  </tr>
+  <tr>
+    <td><p>Check Pen</p></td>
+    <td><p>Spell Fail</p></td>
+    <td><p>Speed</p></td>
+    <td><p>Weight</p></td>
+    <td><p>Special</p></td>
+  </tr>
+  <tr>
+    <td><input placeholder="Check Pen"></td>
+    <td><input placeholder="Spell Fail"></td>
+    <td><input placeholder="Speed"></td>
+    <td><input placeholder="Weight"></td>
+    <td><input placeholder="Special"></td>
+  </tr>
+</table>
+
+<!-- Skills -->
+<div>
+  <table>
+    <tr>
+      <td><p>Skills</p></td>
+      <td><p>Max Ranks</p></td>
+    </tr>
+    <tr>
+      <td><p>Skill Name</p></td>
+      <td><p>ABI</p></td>
+      <td><p>Total</p></td>
+      <td><p>Ability</p></td>
+      <td><p>Ranks</p></td>
+      <td><p>Misc.</p></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td><p>Skill Name</p></td>
+      <td><p>ABI</p></td>
+      <td><input placeholder="Total"></td>
+      <td><input placeholder="Ability"></td>
+      <td><input placeholder="Ranks"></td>
+      <td><input placeholder="Misc"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Feats and Abilities -->
+<table>
+  <tr>
+    <td><p>Feats</p></td>
+    <td><p>Special Abilities</p></td>
+  </tr>
+  <tr>
+    <td><input></td>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td><p>Languages</p></td>
+  </tr>
+  <tr>
+    <td><input></td>
+  </tr>
+</table>
+
+<!-- Inventory -->
+<table>
+  <tr>
+    <td><p>Possessions</p></td>
+  </tr>
+  <tr>
+    <td><input></td>
+  </tr>
+  <tr>
+    <td><p>Money</p></td>
+  </tr>
+  <tr>
+    <td><input></td>
+  </tr>
+</table>
+
+<p>Spells</p>
+<p>Spell Save</p>
+<p>Spell Failure</p>
