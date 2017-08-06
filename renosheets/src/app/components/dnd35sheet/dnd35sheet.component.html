@@ -51,55 +51,54 @@
     <td><p>ABI</p></td>
     <td><p>Score</p></td>
     <td><p>Modifier</p></td>
-    <td><p>Temp Score</p></td>
+    <td><p>Temp Bonus</p></td>
     <td><p>Temp Modifier</p></td>
   </tr>
   <tr>
     <td><p>Strength</p></td>
     <td><p>STR</p></td>
     <td><input [(ngModel)]="str" (blur)="blurAbility('str', str)"></td>
-    <td>{{statStore.strMod}}</td>
-    <td><input [(ngModel)]="this.strMod" readonly></td>
-    <td><input></td>
+    <td><input value="{{statStore.strMod}}" readonly></td>
+    <td><input [(ngModel)]="strBon" (blur)="blurAbility('str', str)"></td>
     <td><input readonly></td>
   </tr>
   <tr>
     <td><p>Dexterity</p></td>
     <td><p>DEX</p></td>
-    <td><input #dex (blur)="blurAbility('dex', dex.value)"></td>
-    <td>{{statStore.dexMod}}</td>
+    <td><input [(ngModel)]="dex" (blur)="blurAbility('dex', dex)"></td>
+    <td><input value="{{statStore.dexMod}}" readonly></td>
     <td><input></td>
     <td><input readonly></td>
   </tr>
   <tr>
     <td><p>Constitution</p></td>
     <td><p>CON</p></td>
-    <td><input #con (blur)="blurAbility('con', con.value)"></td>
-    <td><p>{{statStore.conMod}}</p></td>
+    <td><input [(ngModel)]="con" (blur)="blurAbility('con', con)"></td>
+    <td><input value="{{statStore.conMod}}" readonly></td>
     <td><input></td>
     <td><input readonly></td>
   </tr>
   <tr>
     <td><p>Intelligence</p></td>
     <td><p>INT</p></td>
-    <td><input #int (blur)="blurAbility('int', int.value)"></td>
-    <td>{{statStore.intMod}}</td>
+    <td><input [(ngModel)]="int" (blur)="blurAbility('int', int)"></td>
+    <td><input value="{{statStore.intMod}}" readonly></td>
     <td><input></td>
     <td><input readonly></td>
   </tr>
   <tr>
     <td><p>Wisdom</p></td>
     <td><p>WIS</p></td>
-    <td><input #wis (blur)="blurAbility('wis', wis.value)"></td>
-    <td>{{statStore.wisMod}}</td>
+    <td><input [(ngModel)]="wis" (blur)="blurAbility('wis', wis)"></td>
+    <td><input value="{{statStore.wisMod}}" readonly></td>
     <td><input></td>
     <td><input readonly></td>
   </tr>
   <tr>
     <td><p>Charisma</p></td>
     <td><p>CHA</p></td>
-    <td><input #cha (blur)="blurAbility('cha', cha.value)"></td>
-    <td>{{statStore.chaMod}}</td>
+    <td><input [(ngModel)]="cha" (blur)="blurAbility('cha', cha)"></td>
+    <td><input value="{{statStore.chaMod}}" readonly></td>
     <td><input></td>
     <td><input readonly></td>
   </tr>
